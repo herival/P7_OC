@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 15 juin 2022 à 23:10
--- Version du serveur : 10.4.24-MariaDB
--- Version de PHP : 7.4.29
+-- Généré le : mer. 15 juin 2022 à 23:30
+-- Version du serveur : 10.4.21-MariaDB
+-- Version de PHP : 7.4.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -41,10 +41,10 @@ CREATE TABLE `post` (
 
 INSERT INTO `post` (`id`, `user`, `date`, `img`, `text`) VALUES
 (83, 8, '2022-06-14 16:44:02', NULL, 'Publication de gérard'),
-(86, 7, '2022-06-15 15:22:45', NULL, 'TEST\r\n'),
+(86, 7, '2022-06-15 15:22:45', NULL, 'Cette nouvelle sortie doit être absolument fantastique'),
 (87, 10, '2022-06-15 18:32:56', 'post6784-1655310776610.jpg', NULL),
 (88, 11, '2022-06-15 19:06:23', 'post4979-1655312783119.png', NULL),
-(90, 11, '2022-06-15 19:10:09', NULL, 'test');
+(90, 11, '2022-06-15 19:10:09', NULL, 'Il fait beau aujourd\'hui. ');
 
 -- --------------------------------------------------------
 
@@ -84,7 +84,9 @@ INSERT INTO `post_like` (`id`, `user`, `statut`, `date`, `id_post`) VALUES
 (72, 11, 1, '2022-06-15 19:13:26', 90),
 (74, 11, 1, '2022-06-15 19:13:32', 88),
 (75, 10, 1, '2022-06-15 19:13:48', 90),
-(76, 10, 1, '2022-06-15 19:13:59', 88);
+(76, 10, 1, '2022-06-15 19:13:59', 88),
+(77, 7, -1, '2022-06-15 23:26:45', 86),
+(78, 7, 1, '2022-06-15 23:30:06', 87);
 
 -- --------------------------------------------------------
 
@@ -167,7 +169,7 @@ ALTER TABLE `post_comment`
 -- AUTO_INCREMENT pour la table `post_like`
 --
 ALTER TABLE `post_like`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
 -- AUTO_INCREMENT pour la table `users`
