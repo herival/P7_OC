@@ -1,0 +1,77 @@
+<div class="container">
+  <app-error></app-error>
+  <publish></publish>
+
+  <p *ngIf="actus!.length === 0" class="text-center">
+    Votre fil d'actualité est vide.
+  </p>
+  
+    <div *ngFor="let actu of actus" class="card text-center mt-4 mx-auto" style="max-width: 800px;">
+
+      <div class="card-header d-flex justify-content-between bg-white">
+        <div class="d-flex align-items-center">
+          <img [src]="actu.img_profil" width="50" height="50" alt="photo de profil" class="rounded-circle img-profil">
+          <div class="ms-2 align-items-left">
+            <a class="link-profile">
+              <p class="m-0 fw-bold text-start">
+                {{ actu.firstname }} {{ actu.lastname }}
+              </p>
+            </a>
+            <p class="m-0 text-start text-muted gp-date">Publié le {{ actu.date }}</p>
+          </div>
+        </div>
+        <div class="d-flex" *ngIf="actu.editable === true">
+          <a (click)="showDeletePost(actu.postId, actu.id)" style="cursor: pointer;">
+            <i class="far fa-times-circle"></i>
+          </a>
+        </div>
+      </div>
+      <div class="card-body p-0">
+          <img *ngIf="actu.img" [src]="actu.img" alt="" [ngClass]="(!actu.text)?'img-fluid img-actuality mb-2':'img-fluid img-actuality'" alt="publication" id="dynamic">
+          <p *ngIf="actu.text" class="card-text text-start my-3 mx-3">{{ actu.text }}</p>
+      </div>
+      <div class="card-body text-muted d-flex justify-content-evenly px-2 likebar">
+        <button (click)="likePost(actu.postId)" type="button" [ngClass]="(actu.liked && actu.liked > 0)?'btn gp-liked':'btn gp-like'">
+          <i class="far fa-thumbs-up"></i>
+          {{ actu.like }}
+      </button>
+          <div class="border-end"></div>
+          <button (click)="dislikePost(actu.postId)" type="button" [ngClass]="(actu.liked && actu.liked < 0)?'btn gp-disliked':'btn gp-dislike'">
+            <i class="far fa-thumbs-down"></i>
+            {{ actu.dislike }}
+        </button>
+      </div>
+      <div *ngFor="let comment of actu.comments" >
+        <div class="card-body p-0 mb-2 d-flex justify-content-between">
+          <div class="d-flex align-items-center mx-4 my-1">
+            <img [src]="comment.img_profil" width="45" alt="photo de profil" height="45" class="rounded-circle img-profil">
+            <div class="ms-2 d-flex justify-content-center flex-column">
+              <div class="d-flex flex-row">
+                <a class="link-profile">
+                  <p class="m-0 fw-bold text-start">{{ comment.firstname }} {{ comment.lastname }}
+                  </p>
+                  
+                </a>
+                <p class="m-0 ms-1 text-start text-muted gp-date-com">• {{ comment.date }}</p>
+              </div>
+              <p class="m-0 d-flex text-start">{{ comment.msg }}</p>
+            </div>
+          </div>
+          <div class="d-flex me-3 align-items-center" *ngIf="userDeleteCom(comment.userId) === true">
+            <a (click)="showDeleteCom(actu.id, comment.id, comment.comId)" style="cursor: pointer;">
+              <i class="fas fa-times"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <form (submit)="addComment($event, actu.postId, actu.id)">
+        <div class="card-footer text-muted d-flex justify-content-evenly px-3">
+          <div class="d-flex align-items-center" style="width: 100%">
+              <img [src]="img_profil" width="45" height="45" alt="photo de profil" class="rounded-circle img-profil">
+              <input placeholder="Exprimez vous..." maxlength="255" class="gp-textarea shadow-sm rounded ms-2 d-flex">
+          </div>
+        </div>
+      </form>
+    </div>
+
+</div>

@@ -1,0 +1,19 @@
+.gp-textarea {
+    border: 1px solid #ced4da;
+    height: 110px;
+    width: 100%;
+    resize: none;
+    font-weight: 500;
+    font-size: 15px;
+    padding: 8px;
+  }
+  .img-profile {
+    object-fit: cover;
+  }
+  .gp-icon {
+    height: 50px;
+  }
+  .imgPreview {
+    max-height: 300px;
+  }
+  

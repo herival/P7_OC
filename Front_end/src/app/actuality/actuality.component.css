@@ -1,0 +1,79 @@
+.gp-date {
+    font-size: 12px;
+  }
+  .gp-date-com {
+    font-size: 11px;
+  }
+  .img-actuality {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+  }
+  .fa-user-shield {
+    font-size: 12px;
+  }
+  
+  .img-profil {
+    object-fit: cover;
+  }
+  .gp-like,
+  .gp-dislike,
+  .gp-liked,
+  .gp-disliked {
+    outline: none;
+    box-shadow: none;
+    width: 160px;
+    transition: 0.2s;
+  }
+  .gp-like:hover {
+    color: green;
+    font-weight: bold;
+    transform: scale(1.15);
+  }
+  .gp-dislike:hover {
+    color: red;
+    font-weight: bold;
+    transform: scale(1.15);
+  }
+  .gp-liked {
+    color: green;
+    font-weight: bold;
+    transform: scale(1.15);
+  }
+  .gp-disliked {
+    color: red;
+    font-weight: bold;
+    transform: scale(1.15);
+  }
+  .gp-cpt {
+    width: 165px;
+  }
+  .card-header {
+    padding: 0.5rem 0.5rem 0.5rem 0.8rem;
+  }
+  .likebar {
+    margin: 0 3%;
+    margin-bottom: 10px;
+    padding: 2px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.125);
+    border-width: 1px 0;
+  }
+  .gp-textarea {
+    border: 1px solid #ced4da;
+    height: 40px;
+    width: 100%;
+    resize: none;
+    font-weight: 500;
+    font-size: 15px;
+    padding: 8px;
+  }
+  .fa-times-circle:hover,
+  .fa-times:hover {
+    color: #dc3545 !important;
+  }
+  .link-profile {
+    color: initial;
+    text-decoration: none;
+  }
+  
